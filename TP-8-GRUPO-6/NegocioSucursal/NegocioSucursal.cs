@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using Entidades;
+using Datos;
+
+namespace Negocio
+{
+    public class NegocioSucursal
+    {
+        public DataTable getTablaSucursales()
+        {
+            DaoSucursal dao = new DaoSucursal();
+            return dao.GetTablaSucursales();
+        }
+
+        public bool eliminarSucursal(Sucursal suc)
+        {
+            DaoSucursal dao = new DaoSucursal();
+            int op = dao.EliminarSucursal(suc);
+            return op == 1;
+        }
+
+        public bool agregarSucursal(string nombre, string descripcion, string direccion, int idProvincia)
+        {
+            DaoSucursal dao = new DaoSucursal();
+            Sucursal suc = new Sucursal();
+            suc.setNombreSucursal(nombre);
+            suc.setDescripcion(descripcion);
+            suc.setDireccion(direccion);
+            suc.setIdProvincia(idProvincia);
+
+            int cantFilas = dao.AgregarSucursal(suc);
+            return cantFilas == 1;
+        }
+
+        public DataTable getTablaProvincias()
+        {
+            DaoSucursal dao = new DaoSucursal();
+            return dao.GetTablaProvincias();
+        }
+    }
+}
