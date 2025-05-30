@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A240C78D-7F1A-4B85-A9E1-12895EED36D0}</ProjectGuid>
+    <ProjectGuid>{49A9E3DD-2944-4185-8490-0273DA7C4326}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NegocioSucursal</RootNamespace>
-    <AssemblyName>NegocioSucursal</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,18 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sucursal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NegocioSucursal.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{cbb9960a-20d3-4dca-b2c4-9aa4f3b43a78}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Entidades\Entidades.csproj">
-      <Project>{49a9e3dd-2944-4185-8490-0273da7c4326}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,26 +5,28 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades;
 
 namespace Datos
 {
     public class DaoSucursal
     {
         AccesoDatos dato = new AccesoDatos();
+        
         public DaoSucursal() 
         {
-
+            
         }
 
         public DataTable GetTablaProvincias()
         {
-            DataTable table = dato.ObtenerTabla("Provincias", "SELECT * FROM Provincia");
+            DataTable table = dato.ObtenerTabla("Provincia", "SELECT * FROM Provincia");
             return table;
         }
 
         public DataTable GetTablaSucursales()
         {
-            DataTable table = dato.ObtenerTabla("Provincias", "SELECT * FROM Sucursal");
+            DataTable table = dato.ObtenerTabla("Provincia", "SELECT * FROM Sucursal");
             return table;
         }
 
@@ -38,7 +40,7 @@ namespace Datos
         public int AgregarSucursal(Sucursal reg)
         {
 
-            reg.setID(dato.ObtenerMaximo("SELECT max(Id_Sucursal) FROM Sucursal") + 1);
+            reg.setIdSucursal(dato.ObtenerMaximo("SELECT max(Id_Sucursal) FROM Sucursal") + 1);
             SqlCommand comando = new SqlCommand();
             ArmarParametrosSucursalAgregar(ref comando, reg);
             return dato.EjecutarProcedimientoAlmacenado(comando, "spAgregarSucursal");
@@ -48,18 +50,18 @@ namespace Datos
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@Id_Sucursal", SqlDbType.Int);
-            SqlParametros.Value = reg.getID();
+            SqlParametros.Value = reg.getIdSucursal();
         }
 
         private void ArmarParametrosSucursalAgregar(ref SqlCommand Comando, Sucursal reg)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@NombreSucursal", SqlDbType.VarChar);
-            SqlParametros.Value = reg.getNombre();
+            SqlParametros.Value = reg.getNombreSucursal();
             SqlParametros = Comando.Parameters.Add("@DescripcionSucursal", SqlDbType.VarChar);
             SqlParametros.Value = reg.getDescripcion();
             SqlParametros = Comando.Parameters.Add("@Id_ProvinciaSucursal", SqlDbType.Int);
-            SqlParametros.Value = reg.getProvincia();
+            SqlParametros.Value = reg.getIdProvincia();
             SqlParametros = Comando.Parameters.Add("@DireccionSucursal", SqlDbType.VarChar);
             SqlParametros.Value = reg.getDireccion();
         }
