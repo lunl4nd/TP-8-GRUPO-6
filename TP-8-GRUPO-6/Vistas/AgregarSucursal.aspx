@@ -38,7 +38,7 @@
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/AgregarSucursal.aspx">Agregar Sucursal</asp:HyperLink>
                     </td>
                     <td class="auto-style3">
-                        <asp:HyperLink ID="HyperLink2" runat="server">Listado de Sucursales</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/ListadoSucursales.aspx">Listado de Sucursales</asp:HyperLink>
                     </td>
                     <td>
                         <asp:HyperLink ID="HyperLink3" runat="server">Eliminar Sucursal</asp:HyperLink>
@@ -103,6 +103,7 @@
                     </td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txtNombre" ErrorMessage="Ingrese un nombre." ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -116,6 +117,7 @@
                     </td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una descripción." ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -143,6 +145,7 @@
                     </td>
                     <td class="auto-style3">
                         <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvDireccion" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Seleccione una provincia." ForeColor="Red"></asp:RequiredFieldValidator>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -162,7 +165,7 @@
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
                     <td class="auto-style3">
-                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" />
+                        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClick="btnAceptar_Click" />
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -171,7 +174,9 @@
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="lblExito" runat="server" ForeColor="Green" Text="Se añadio exitosamente!" Visible="False"></asp:Label>
+                    </td>
                     <td class="auto-style3">&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>

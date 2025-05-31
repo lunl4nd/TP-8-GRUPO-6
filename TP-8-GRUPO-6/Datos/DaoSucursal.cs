@@ -26,7 +26,14 @@ namespace Datos
 
         public DataTable GetTablaSucursales()
         {
-            DataTable table = dato.ObtenerTabla("Provincia", "SELECT * FROM Sucursal");
+            DataTable table = dato.ObtenerTabla("Sucursal", "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal FROM Sucursal");
+            return table;
+        }
+
+        public DataTable GetTablaSucursalesFiltrada(int idBuscada)
+        {
+            DataTable table = dato.ObtenerTabla("Sucursal", "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, " +
+                "Id_ProvinciaSucursal, DireccionSucursal FROM Sucursal WHERE Id_Sucursal = " + idBuscada);
             return table;
         }
 
@@ -84,6 +91,7 @@ namespace Datos
         INSERT INTO Sucursal(NombreSucursal,DescripcionSucursal,Id_ProvinciaSucursal,DireccionSucursal) 
         VALUES(@NombreSucursal,@DescripcionSucursal,@Id_ProvinciaSucursal,@DireccionSucursal)
         RETURN
+
         */
 
 

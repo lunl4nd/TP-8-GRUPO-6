@@ -43,5 +43,11 @@ namespace Negocio
             DaoSucursal dao = new DaoSucursal();
             return dao.GetTablaProvincias();
         }
+
+        public DataTable getTableSucursalesFiltrada(int idBuscada)
+        {
+            DaoSucursal dao = new DaoSucursal();
+            return dao.GetTablaSucursalesFiltrada(idBuscada);
+        }
     }
 }
