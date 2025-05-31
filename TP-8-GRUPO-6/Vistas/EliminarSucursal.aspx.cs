@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocio;
+using Entidades;
 
 namespace Vistas
 {
@@ -19,7 +21,7 @@ namespace Vistas
             int id;
             if (int.TryParse(deletebox.Text.Trim(), out id))
             {
-                NegocioSucursales negocio = new NegocioSucursales();
+                NegocioSucursal negocio = new NegocioSucursal();
                 bool exito = negocio.eliminarSucursal(id);
 
                 if (exito)

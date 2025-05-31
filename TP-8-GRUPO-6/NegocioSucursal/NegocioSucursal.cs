@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using Entidades;
 using Datos;
+using System.ComponentModel;
 
 namespace Negocio
 {
@@ -18,10 +19,12 @@ namespace Negocio
             return dao.GetTablaSucursales();
         }
 
-        public bool eliminarSucursal(Sucursal suc)
+        public bool eliminarSucursal(int id)
         {
             DaoSucursal dao = new DaoSucursal();
-            int op = dao.EliminarSucursal(suc);
+            Sucursal obj = new Sucursal();
+            obj.setIdSucursal(id);
+            int op = dao.EliminarSucursal(obj);
             return op == 1;
         }
 

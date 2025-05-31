@@ -26,7 +26,8 @@ namespace Datos
 
         public DataTable GetTablaSucursales()
         {
-            DataTable table = dato.ObtenerTabla("Sucursal", "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, Id_ProvinciaSucursal, DireccionSucursal FROM Sucursal");
+            DataTable table = dato.ObtenerTabla("Sucursal", "SELECT Id_Sucursal, NombreSucursal, DescripcionSucursal, " +
+            "DescripcionProvincia, DireccionSucursal FROM Sucursal INNER JOIN Provincia ON Id_ProvinciaSucursal = Id_Provincia");
             return table;
         }
 
