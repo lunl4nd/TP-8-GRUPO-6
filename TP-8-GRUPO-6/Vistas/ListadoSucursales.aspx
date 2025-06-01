@@ -19,9 +19,6 @@
         .auto-style9 {
             width: 218px;
         }
-        .auto-style10 {
-            width: 266px;
-        }
     </style>
 </head>
 <body>

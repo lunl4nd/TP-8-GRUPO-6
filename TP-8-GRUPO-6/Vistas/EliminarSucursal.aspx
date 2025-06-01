@@ -23,6 +23,8 @@
             Ingresar ID Sucursal:
             <asp:TextBox ID="deletebox" runat="server"></asp:TextBox>
             <asp:Button ID="delbtn" runat="server" OnClick="delbtn_Click" Text="Eliminar" />
+            &nbsp;
+            <asp:RequiredFieldValidator ID="rfvIdSucursal" runat="server" ControlToValidate="deletebox" ErrorMessage="* Ingrese un ID" ForeColor="Red"></asp:RequiredFieldValidator>
             <br />
             <br />
             <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>

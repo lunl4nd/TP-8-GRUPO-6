@@ -22,9 +22,9 @@ namespace Vistas
             if (int.TryParse(deletebox.Text.Trim(), out id))
             {
                 NegocioSucursal negocio = new NegocioSucursal();
-                bool exito = negocio.eliminarSucursal(id);
+                int exito = negocio.eliminarSucursal(id);
 
-                if (exito)
+                if (exito == 1)
                 {
                     lblMensaje.Text = "Sucursal eliminada correctamente.";
                     lblMensaje.ForeColor = System.Drawing.Color.Green;

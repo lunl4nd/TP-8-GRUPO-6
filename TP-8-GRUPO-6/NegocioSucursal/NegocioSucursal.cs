@@ -19,13 +19,13 @@ namespace Negocio
             return dao.GetTablaSucursales();
         }
 
-        public bool eliminarSucursal(int id)
+        public int eliminarSucursal(int id)
         {
             DaoSucursal dao = new DaoSucursal();
             Sucursal obj = new Sucursal();
             obj.setIdSucursal(id);
             int op = dao.EliminarSucursal(obj);
-            return op == 1;
+            return op;
         }
 
         public bool agregarSucursal(string nombre, string descripcion, string direccion, int idProvincia)
